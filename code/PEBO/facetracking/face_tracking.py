@@ -29,7 +29,7 @@ class CombinedFaceTracking:
         # Setup servos
         self.h_servo_channel = 7
         self.v_servo_channel = 6
-        self.center_servo_channel = 4
+        self.center_servo_channel = 5
         
         self.h_servo = servo.Servo(self.pwm.channels[self.h_servo_channel])
         self.v_servo = servo.Servo(self.pwm.channels[self.v_servo_channel])
@@ -76,7 +76,7 @@ class CombinedFaceTracking:
         # Center servo parameters
         self.center_current_angle = 90
         self.center_target_angle = 90
-        self.center_zone_width = 80
+        self.center_zone_width = 90
         self.center_zone_left = (self.width // 2) - (self.center_zone_width // 2)
         self.center_zone_right = (self.width // 2) + (self.center_zone_width // 2)
         self.center_kp = 0.1

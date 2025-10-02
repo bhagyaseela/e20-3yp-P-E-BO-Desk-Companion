@@ -86,7 +86,7 @@ def store_ip_to_firebase(user_id, device_id, ip_address, ssid):
         })
         logger.info(f"Stored IP {ip_address or 'Disconnected'} and SSID {ssid or 'Unknown'} for user {user_id}, device {device_id}")
     except Exception as e:
-        logger.error(f"Error storing data to Firebase: {str(e)}")
+        logger.error(f"Error storing data to Firebase: {e}")
 
 def save_to_json(data):
     """Save the QR code data to a JSON file."""
@@ -186,76 +186,96 @@ def process_qr_code(data):
         logger.error(f"Error processing QR code: {e}")
         return False
 
-def main():
-    """Main function to capture video and scan QR codes using Picamera2."""
-    # Initialize Firebase
+def run_qr_scanner():
+    """Run the QR code scanner using Picamera2 to capture and process QR codes."""
+    camera = None
     try:
-        initialize_firebase()
-    except Exception as e:
-        logger.error("Exiting due to Firebase initialization failure")
-        return
+        # Initialize Firebase
+        try:
+            initialize_firebase()
+        except Exception as e:
+            logger.error("Exiting due to Firebase initialization failure")
+            return False
 
-    # Initialize camera
-    try:
-        camera = Picamera2()
-        camera.configure(camera.create_preview_configuration(main={"size": (640, 480)}))
-        camera.start()
-        logger.info("Camera initialized successfully")
-    except Exception as e:
-        logger.error(f"Failed to initialize camera: {e}")
-        return
+        # Initialize camera
+        try:
+            camera = Picamera2()
+            camera.configure(camera.create_preview_configuration(main={"size": (640, 480)}))
+            camera.start()
+            logger.info("Camera initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize camera: {e}")
+            return False
 
-    qr_detected = False
+        qr_detected = False
+        try:
+            while not qr_detected:
+                # Capture frame
+                frame = camera.capture_array()
+                if frame is None:
+                    logger.error("Failed to capture frame")
+                    break
 
-    try:
-        while not qr_detected:
-            # Capture frame
-            frame = camera.capture_array()
-            if frame is None:
-                logger.error("Failed to capture frame")
-                break
+                # Convert frame to grayscale for QR code detection
+                gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
 
-            # Convert frame to grayscale for QR code detection
-            gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+                # Decode QR codes in the frame
+                decoded_objects = pyzbar.decode(gray)
+                for obj in decoded_objects:
+                    qr_data = obj.data.decode('utf-8')
+                    logger.info(f"QR code detected: {qr_data}")
+                    
+                    # Process the QR code
+                    if process_qr_code(qr_data):
+                        qr_detected = True
+                        logger.info("QR code processed successfully, exiting...")
+                    else:
+                        logger.warning("Failed to process QR code, continuing to scan...")
+                    
+                    # Draw rectangle around QR code
+                    points = obj.polygon
+                    if len(points) >= 4:
+                        pts = [(point.x, point.y) for point in points]
+                        cv2.polylines(frame, [np.array(pts, dtype=np.int32)], True, (0, 255, 0), 3)
 
-            # Decode QR codes in the frame
-            decoded_objects = pyzbar.decode(gray)
-            for obj in decoded_objects:
-                qr_data = obj.data.decode('utf-8')
-                logger.info(f"QR code detected: {qr_data}")
-                
-                # Process the QR code
-                if process_qr_code(qr_data):
-                    qr_detected = True
-                    logger.info("QR code processed successfully, exiting...")
-                else:
-                    logger.warning("Failed to process QR code, continuing to scan...")
-                
-                # Draw rectangle around QR code
-                points = obj.polygon
-                if len(points) >= 4:
-                    pts = [(point.x, point.y) for point in points]
-                    cv2.polylines(frame, [np.array(pts, dtype=np.int32)], True, (0, 255, 0), 3)
+                # Display the frame
+                cv2.imshow('PEBO QR Scanner', frame)
 
-            # Display the frame
-            cv2.imshow('PEBO QR Scanner', frame)
+                # Exit on 'q' key press
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    logger.info("User terminated the scanner")
+                    break
 
-            # Exit on 'q' key press
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                logger.info("User terminated the scanner")
-                break
+                # Small delay to prevent excessive CPU usage
+                time.sleep(0.1)
 
-            # Small delay to prevent excessive CPU usage
-            time.sleep(0.1)
+        except KeyboardInterrupt:
+            logger.info("Scanner terminated by user")
+        except Exception as e:
+            logger.error(f"Unexpected error in main loop: {e}")
+        
+        return qr_detected
 
-    except KeyboardInterrupt:
-        logger.info("Scanner terminated by user")
-    except Exception as e:
-        logger.error(f"Unexpected error in main loop: {e}")
     finally:
-        camera.stop()
-        cv2.destroyAllWindows()
-        logger.info("Camera stopped and windows closed")
+        # Ensure camera is stopped and closed
+        if camera is not None:
+            try:
+                camera.stop()
+                camera.close()
+                logger.info("Camera stopped and closed")
+            except Exception as e:
+                logger.error(f"Error stopping/closing camera: {e}")
+        try:
+            cv2.destroyAllWindows()
+            logger.info("OpenCV windows closed")
+        except Exception as e:
+            logger.error(f"Error closing OpenCV windows: {e}")
+        try:
+            if firebase_admin._apps:
+                firebase_admin.delete_app(firebase_admin.get_app())
+                logger.info("Firebase app cleaned up")
+        except Exception as e:
+            logger.error(f"Error cleaning up Firebase app: {e}")
 
 if __name__ == "__main__":
-    main()
+    run_qr_scanner()
