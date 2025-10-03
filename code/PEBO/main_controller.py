@@ -9,7 +9,6 @@ import busio
 import os
 from adafruit_pca9685 import PCA9685
 from adafruit_motor import servo
-from display.eyes import RoboEyesDual
 from facetracking.face_tracking_qr_hi import CombinedFaceTracking
 from interaction.touch_sensor import detect_continuous_touch
 from arms.arms_pwm import say_hi
@@ -141,7 +140,7 @@ def main():
     
     # Start eyes, face tracking, periodic recognition, voice monitoring, and shutdown monitor immediately
     threading.Thread(target=run_face_tracking, daemon=True).start()
-    #threading.Thread(target=run_periodic_recognition, daemon=True).start()
+    threading.Thread(target=run_periodic_recognition, daemon=True).start()
     threading.Thread(target=run_voice_monitoring, daemon=True).start()
     threading.Thread(target=shutdown_on_touch, daemon=True).start()
 

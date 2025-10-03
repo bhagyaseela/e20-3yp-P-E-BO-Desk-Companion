@@ -12099,3 +12099,112 @@ lgpio.error: 'unknown handle'
 2025-10-03 01:27:16,533 - INFO - Firebase initialized successfully
 2025-10-03 01:27:52,174 - INFO - Firebase app cleaned up
 2025-10-03 01:28:18,837 - INFO - Firebase initialized successfully
+2025-10-03 17:03:44,788 - INFO - Main controller started at 2025-10-03 17:03:44
+2025-10-03 17:03:44,806 - INFO - Waiting 20 seconds for Firebase initialization before starting reminder loop
+2025-10-03 17:03:44,863 - INFO - Initialization successful.
+2025-10-03 17:03:44,865 - INFO - Camera now open.
+2025-10-03 17:03:44,876 - INFO - Configuration successful!
+2025-10-03 17:03:45,016 - INFO - Camera started
+2025-10-03 17:04:04,807 - INFO - Starting reminder loop
+2025-10-03 17:04:04,808 - ERROR - Firebase app not initialized. Ensure CombinedFaceTracking initializes Firebase.
+2025-10-03 17:05:26,444 - INFO - Firebase initialized successfully
+2025-10-03 17:05:48,871 - INFO - Firebase app cleaned up
+2025-10-03 17:05:59,922 - INFO - Main controller stopped via KeyboardInterrupt at 2025-10-03 17:05:59
+2025-10-03 17:05:59,964 - INFO - Camera stopped
+2025-10-03 17:06:00,167 - INFO - Camera closed successfully.
+2025-10-03 17:10:15,633 - INFO - Main controller started at 2025-10-03 17:10:15
+2025-10-03 17:10:15,654 - INFO - Waiting 20 seconds for Firebase initialization before starting reminder loop
+2025-10-03 17:10:15,717 - INFO - Initialization successful.
+2025-10-03 17:10:15,718 - INFO - Camera now open.
+2025-10-03 17:10:15,730 - INFO - Configuration successful!
+2025-10-03 17:10:15,851 - INFO - Camera started
+2025-10-03 17:10:35,657 - INFO - Starting reminder loop
+2025-10-03 17:10:35,658 - ERROR - Firebase app not initialized. Ensure CombinedFaceTracking initializes Firebase.
+2025-10-03 17:10:42,566 - INFO - Firebase initialized successfully
+2025-10-03 17:11:49,631 - INFO - Camera stopped
+2025-10-03 17:11:49,835 - INFO - Camera closed successfully.
+2025-10-03 17:15:21,817 - INFO - Firebase initialized successfully
+2025-10-03 17:17:10,567 - INFO - Firebase app cleaned up
+2025-10-03 17:17:47,836 - INFO - Firebase initialized successfully
+2025-10-03 17:37:14,387 - INFO - Main controller started at 2025-10-03 17:37:14
+2025-10-03 17:37:14,412 - INFO - Waiting 20 seconds for Firebase initialization before starting reminder loop
+2025-10-03 17:37:14,492 - INFO - Initialization successful.
+2025-10-03 17:37:14,494 - INFO - Camera now open.
+2025-10-03 17:37:14,502 - INFO - Configuration successful!
+2025-10-03 17:37:14,627 - INFO - Camera started
+2025-10-03 17:37:34,415 - INFO - Starting reminder loop
+2025-10-03 17:37:34,416 - ERROR - Firebase app not initialized. Ensure CombinedFaceTracking initializes Firebase.
+2025-10-03 17:38:42,058 - INFO - Main controller stopped via KeyboardInterrupt at 2025-10-03 17:38:42
+2025-10-03 17:38:42,103 - INFO - Camera stopped
+2025-10-03 17:38:42,306 - INFO - Camera closed successfully.
+2025-10-03 17:55:57,968 - INFO - Main controller started at 2025-10-03 17:55:57
+2025-10-03 17:55:57,995 - INFO - Waiting 20 seconds for Firebase initialization before starting reminder loop
+2025-10-03 17:55:58,058 - INFO - Initialization successful.
+2025-10-03 17:55:58,058 - INFO - Camera now open.
+2025-10-03 17:55:58,071 - INFO - Configuration successful!
+2025-10-03 17:55:58,203 - INFO - Camera started
+2025-10-03 17:56:12,373 - INFO - Camera stopped
+2025-10-03 17:56:12,572 - INFO - Camera closed successfully.
+2025-10-03 18:04:10,101 - INFO - Main controller started at 2025-10-03 18:04:10
+2025-10-03 18:04:10,124 - INFO - Waiting 20 seconds for Firebase initialization before starting reminder loop
+2025-10-03 18:04:10,183 - INFO - Initialization successful.
+2025-10-03 18:04:10,184 - INFO - Camera now open.
+2025-10-03 18:04:10,193 - INFO - Configuration successful!
+2025-10-03 18:04:10,319 - INFO - Camera started
+2025-10-03 18:04:30,126 - INFO - Starting reminder loop
+2025-10-03 18:04:30,128 - ERROR - Firebase app not initialized. Ensure CombinedFaceTracking initializes Firebase.
+2025-10-03 18:04:50,424 - INFO - Main controller stopped via KeyboardInterrupt at 2025-10-03 18:04:50
+2025-10-03 18:04:50,476 - INFO - Camera stopped
+2025-10-03 18:04:50,678 - INFO - Camera closed successfully.
+2025-10-03 18:28:16,431 - INFO - Main controller started at 2025-10-03 18:28:16
+2025-10-03 18:28:16,454 - INFO - Waiting 20 seconds for Firebase initialization before starting reminder loop
+2025-10-03 18:28:16,527 - INFO - Initialization successful.
+2025-10-03 18:28:16,528 - INFO - Camera now open.
+2025-10-03 18:28:16,535 - INFO - Configuration successful!
+2025-10-03 18:28:16,666 - INFO - Camera started
+2025-10-03 18:28:36,457 - INFO - Starting reminder loop
+2025-10-03 18:28:36,470 - INFO - Using existing Firebase app
+2025-10-03 18:28:36,474 - ERROR - Config file /home/pi/pebo_config.json not found
+2025-10-03 18:29:25,447 - INFO - Main controller stopped via KeyboardInterrupt at 2025-10-03 18:29:25
+2025-10-03 18:29:25,499 - INFO - Camera stopped
+2025-10-03 18:29:25,707 - INFO - Camera closed successfully.
+2025-10-03 18:30:22,346 - INFO - Main controller started at 2025-10-03 18:30:22
+2025-10-03 18:30:22,371 - INFO - Waiting 20 seconds for Firebase initialization before starting reminder loop
+2025-10-03 18:30:22,445 - INFO - Initialization successful.
+2025-10-03 18:30:22,446 - INFO - Camera now open.
+2025-10-03 18:30:22,455 - INFO - Configuration successful!
+2025-10-03 18:30:22,595 - INFO - Camera started
+2025-10-03 18:30:28,115 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-10-03 18:30:42,375 - INFO - Starting reminder loop
+2025-10-03 18:30:42,380 - INFO - Using existing Firebase app
+2025-10-03 18:30:42,382 - ERROR - Config file /home/pi/pebo_config.json not found
+2025-10-03 18:31:47,524 - INFO - Main controller stopped via KeyboardInterrupt at 2025-10-03 18:31:47
+2025-10-03 18:31:47,569 - INFO - Camera stopped
+2025-10-03 18:31:47,783 - INFO - Camera closed successfully.
+2025-10-03 18:32:21,631 - INFO - Main controller started at 2025-10-03 18:32:21
+2025-10-03 18:32:21,653 - INFO - Waiting 20 seconds for Firebase initialization before starting reminder loop
+2025-10-03 18:32:21,721 - INFO - Initialization successful.
+2025-10-03 18:32:21,722 - INFO - Camera now open.
+2025-10-03 18:32:21,732 - INFO - Configuration successful!
+2025-10-03 18:32:21,871 - INFO - Camera started
+2025-10-03 18:32:27,332 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-10-03 18:32:41,655 - INFO - Starting reminder loop
+2025-10-03 18:32:41,657 - INFO - Using existing Firebase app
+2025-10-03 18:32:41,658 - ERROR - Config file /home/pi/pebo_config.json not found
+2025-10-03 18:34:01,580 - INFO - Main controller stopped via KeyboardInterrupt at 2025-10-03 18:34:01
+2025-10-03 18:34:07,160 - INFO - Camera stopped
+2025-10-03 18:34:07,365 - INFO - Camera closed successfully.
+2025-10-03 18:47:26,351 - INFO - Main controller started at 2025-10-03 18:47:26
+2025-10-03 18:47:26,371 - INFO - Waiting 20 seconds for Firebase initialization before starting reminder loop
+2025-10-03 18:47:26,439 - INFO - Initialization successful.
+2025-10-03 18:47:26,440 - INFO - Camera now open.
+2025-10-03 18:47:26,450 - INFO - Configuration successful!
+2025-10-03 18:47:26,571 - INFO - Camera started
+2025-10-03 18:47:32,102 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-10-03 18:47:46,373 - INFO - Starting reminder loop
+2025-10-03 18:47:46,375 - INFO - Using existing Firebase app
+2025-10-03 18:47:46,375 - ERROR - Config file /home/pi/pebo_config.json not found
+2025-10-03 18:48:47,655 - INFO - Firebase app cleaned up
+2025-10-03 18:49:50,741 - INFO - Main controller stopped via KeyboardInterrupt at 2025-10-03 18:49:50
+2025-10-03 18:49:50,783 - INFO - Camera stopped
+2025-10-03 18:49:50,989 - INFO - Camera closed successfully.

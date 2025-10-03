@@ -1,2 +1,2 @@
-Name: Bhagya
+Name: bhagya
 Emotion: CALM

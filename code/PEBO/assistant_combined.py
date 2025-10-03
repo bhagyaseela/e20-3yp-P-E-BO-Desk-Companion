@@ -560,7 +560,7 @@ Provide your answer in the format [emotion, reply], where 'emotion' is one of th
 """
     conversation_history.append({"role": "user", "parts": [full_prompt]})
     
-    max_tokens = 20  # Increased to prevent truncation
+    max_tokens = 30  # Increased to prevent truncation
     retry_attempts = 3
     attempt = 0
     reply = None
@@ -927,7 +927,7 @@ Provide your answer in the format [emotion, reply], where 'emotion' is one of th
 
         full_user_input = f"{user_input}\nAbove is my conversation part. What is your emotion for that conversation (Happy, Sad, Angry, Normal, or Love)? If my conversation includes words like 'love', 'loving', 'beloved', 'adore', 'affection', 'cute', 'adorable', 'sweet', or 'charming', or if the overall sentiment feels loving or cute, set your emotion to Love. Otherwise, determine the appropriate emotion based on the conversation's context. Your emotion is [emotion] and your answer for above conversation is [answer]. Give your answer as [emotion,answer]"
         conversation_history.append({"role": "user", "parts": [full_user_input]})
-        response = model.generate_content(conversation_history, generation_config={"max_output_tokens": 20})
+        response = model.generate_content(conversation_history, generation_config={"max_output_tokens": 30})
         reply = response.text.strip()
 
         emotion = "Normal"
@@ -958,7 +958,7 @@ Provide your answer in the format [emotion, reply], where 'emotion' is one of th
     
     cleanup()
     print("this in assistant")
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(0.1)
 
 async def monitor_for_trigger(name, emotion):
     initialize_hardware()
