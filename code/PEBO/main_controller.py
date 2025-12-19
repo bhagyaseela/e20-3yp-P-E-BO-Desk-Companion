@@ -140,7 +140,7 @@ def main():
     
     # Start eyes, face tracking, periodic recognition, voice monitoring, and shutdown monitor immediately
     threading.Thread(target=run_face_tracking, daemon=True).start()
-    threading.Thread(target=run_periodic_recognition, daemon=True).start()
+    # ~ threading.Thread(target=run_periodic_recognition, daemon=True).start()
     threading.Thread(target=run_voice_monitoring, daemon=True).start()
     threading.Thread(target=shutdown_on_touch, daemon=True).start()
 

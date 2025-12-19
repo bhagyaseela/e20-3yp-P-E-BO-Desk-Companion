@@ -9,7 +9,7 @@ import cv2
 import mediapipe as mp
 from picamera2 import Picamera2
 import time
-from collections import deque
+from collections il                                     +``````````````````````````````````````````````````````mport deque
 import numpy as np
 import threading
 import busio
