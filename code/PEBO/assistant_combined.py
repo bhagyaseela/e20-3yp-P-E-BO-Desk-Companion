@@ -171,7 +171,7 @@ def cleanup():
 pygame.mixer.init()
 
 # Gemini API 
-GOOGLE_API_KEY = "AIzaSyDlpxPAgmv5rHPs4hkVoKFiUdCCXuhakbY"
+GOOGLE_API_KEY = "AIzaSyBB9bVr1bLfwnKAIa-LN4cp4wabv5821Is"
 
 genai.configure(api_key=GOOGLE_API_KEY)
 
@@ -323,10 +323,11 @@ async def speak_text(text):
     """Speak using Edge TTS."""
     # ~ voice = "en-US-SoniaNeural" #error voicec
     voice = "en-US-AnaNeural"  # child voice
+    # ~ voice = "en-GB-MaisieNeural"
     # ~ voice = "en-US-JennyNeural" #female voice
     filename = "response.mp3"
     # ~ boosted_file = "boosted_response.mp3"
-
+    
     tts = edge_tts.Communicate(text, voice)
     await tts.save(filename)
 
@@ -473,7 +474,7 @@ def fetch_user_tasks(user_id):
                         reminder_text = f" with reminders set for {', and '.join(reminders)}"
 
                     task_info = (f"{description}, due on {deadline.strftime('%B %d at %I:%M %p')}, "
-                                f"priority {priority}{reminder_text}. "
+                                # ~ f"priority {priority}{reminder_text}. "
                                 f"{'It is due soon!' if minutes_until_deadline <= reminder_time1 or minutes_until_deadline <= reminder_time2 else ''}")
                     pending_tasks.append(task_info)
                 except ValueError:
@@ -560,7 +561,7 @@ Provide your answer in the format [emotion, reply], where 'emotion' is one of th
 """
     conversation_history.append({"role": "user", "parts": [full_prompt]})
     
-    max_tokens = 20  # Increased to prevent truncation
+    max_tokens = 40  # Increased to prevent truncation
     retry_attempts = 3
     attempt = 0
     reply = None
@@ -958,7 +959,7 @@ Provide your answer in the format [emotion, reply], where 'emotion' is one of th
     
     cleanup()
     print("this in assistant")
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(0.1)
 
 async def monitor_for_trigger(name, emotion):
     initialize_hardware()

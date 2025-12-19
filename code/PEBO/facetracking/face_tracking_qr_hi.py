@@ -385,6 +385,7 @@ class CombinedFaceTracking:
                 self.qr_processed = True
             qr_data = json.loads(qr_data)
             print(f"Decoded QR code data: {qr_data}")
+            self.speak_text("QR code detected")
             ssid = qr_data.get('ssid')
             password = qr_data.get('password')
             device_id = qr_data.get('deviceId')
@@ -411,6 +412,7 @@ class CombinedFaceTracking:
                 print("Continuing despite failure to save JSON")
             if self.update_preconfigured_wifi(ssid, password):
                 print("Preconfigured Wi-Fi updated and connected successfully")
+                self.speak_text("Connected to WiFi")
                 time.sleep(5)
                 ip_address = self.get_ip_address()
                 current_ssid = self.get_wifi_ssid()

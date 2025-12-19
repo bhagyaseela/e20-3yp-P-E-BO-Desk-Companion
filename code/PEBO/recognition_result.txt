@@ -1,2 +1,2 @@
-Name: Bhagya
-Emotion: CALM
+Name: User
+Emotion: Calm
